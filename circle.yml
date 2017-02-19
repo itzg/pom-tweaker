@@ -6,7 +6,7 @@ stages:
   build:
     workDir: ~/pom-tweaker
     environment:
-          - MAVEN_OPTS: "-Xmx512M -XX:+ExitOnOutOfMemoryError"
+      - MAVEN_OPTS: "-Xmx1024M"
     steps:
       - type: checkout
       - type: cache-restore
