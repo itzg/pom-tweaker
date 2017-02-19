@@ -1,0 +1,20 @@
+version: 2
+executorType: docker
+containerInfo:
+  - image: maven:3.3.9-jdk-8
+stages:
+  build:
+    workDir: ~/pom-tweaker
+    steps:
+      - type: checkout
+      - type: cache-restore
+        keys:
+          - m2repo-{{.Branch}}
+      - type: shell
+        command: mvn package
+      - type: cache-save
+        key: m2repo-{{.Branch}}
+        paths: ~/.m2/repository
+      - type: artifacts-store
+        path: target/pom-tweaker.jar
+        destination: build
