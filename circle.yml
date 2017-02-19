@@ -5,13 +5,15 @@ containerInfo:
 stages:
   build:
     workDir: ~/pom-tweaker
+    environment:
+          - MAVEN_OPTS: "-Xmx512M -XX:+ExitOnOutOfMemoryError"
     steps:
       - type: checkout
       - type: cache-restore
         keys:
           - m2repo-{{.Branch}}
       - type: shell
-        command: mvn -X install
+        command: mvn -X package
       - type: cache-save
         key: m2repo-{{.Branch}}
         paths: ~/.m2/repository
