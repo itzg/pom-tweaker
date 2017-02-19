@@ -6,7 +6,7 @@ stages:
   build:
     workDir: ~/pom-tweaker
     environment:
-      - MAVEN_OPTS: "-Xmx1024M"
+      - MAVEN_OPTS: "-Xmx512m -XX:MaxPermSize=512m"
     steps:
       - type: checkout
       - type: cache-restore
