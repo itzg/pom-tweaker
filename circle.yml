@@ -13,7 +13,7 @@ stages:
         keys:
           - m2repo-{{.Branch}}
       - type: shell
-        command: top -b -n 1
+        command: mvn package
       - type: cache-save
         key: m2repo-{{.Branch}}
         paths: ~/.m2/repository
