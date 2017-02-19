@@ -13,6 +13,8 @@ stages:
       - type: shell
         command: |
           find .
+          which mvn
+          mvn -v
           mvn package
       - type: cache-save
         key: m2repo-{{.Branch}}
