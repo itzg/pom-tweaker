@@ -6,7 +6,7 @@ stages:
   build:
     workDir: ~/pom-tweaker
     environment:
-      - "MAVEN_OPTS=-showversion -Xmx512m"
+      - MAVEN_OPTS: -Xmx256m
     steps:
       - type: checkout
       - type: cache-restore
