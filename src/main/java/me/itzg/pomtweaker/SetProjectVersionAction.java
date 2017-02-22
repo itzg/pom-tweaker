@@ -62,7 +62,7 @@ public class SetProjectVersionAction implements Action {
             }
         }
 
-        Files.move(tempOutFile, pomFile.resolveSibling("pom.xml.new"), StandardCopyOption.REPLACE_EXISTING);
+        Files.move(tempOutFile, pomFile, StandardCopyOption.REPLACE_EXISTING);
     }
 
 }
